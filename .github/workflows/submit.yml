@@ -226,7 +226,7 @@ jobs:
       - name: Persist test bundles
         uses: actions/upload-artifact@v3
         with:
-          name: transient_jdk-linux-x64${{ matrix.artifact }}_${{ needs.prerequisites.outputs.bundle_id }}
+          name: jdk-linux-x64${{ matrix.artifact }}_${{ needs.prerequisites.outputs.bundle_id }}
           path: |
             jdk/build/linux-x64/bundles/jdk-${{ env.JDK_VERSION }}-internal+0_linux-x64_bin${{ matrix.artifact }}.tar.gz
             jdk/build/linux-x64/bundles/jdk-${{ env.JDK_VERSION }}-internal+0_linux-x64_bin-tests${{ matrix.artifact }}.tar.gz
@@ -322,14 +322,14 @@ jobs:
         id: build_restore
         uses: actions/download-artifact@v3
         with:
-          name: transient_jdk-linux-x64${{ matrix.artifact }}_${{ needs.prerequisites.outputs.bundle_id }}
+          name: jdk-linux-x64${{ matrix.artifact }}_${{ needs.prerequisites.outputs.bundle_id }}
           path: ~/jdk-linux-x64${{ matrix.artifact }}
         continue-on-error: true
 
       - name: Restore build artifacts (retry)
         uses: actions/download-artifact@v3
         with:
-          name: transient_jdk-linux-x64${{ matrix.artifact }}_${{ needs.prerequisites.outputs.bundle_id }}
+          name: jdk-linux-x64${{ matrix.artifact }}_${{ needs.prerequisites.outputs.bundle_id }}
           path: ~/jdk-linux-x64${{ matrix.artifact }}
         if: steps.build_restore.outcome == 'failure'
 
@@ -586,14 +586,14 @@ jobs:
         id: build_restore
         uses: actions/download-artifact@v3
         with:
-          name: transient_jdk-linux-x64_${{ needs.prerequisites.outputs.bundle_id }}
+          name: jdk-linux-x64_${{ needs.prerequisites.outputs.bundle_id }}
           path: ~/jdk-linux-x64
         continue-on-error: true
 
       - name: Restore build JDK (retry)
         uses: actions/download-artifact@v3
         with:
-          name: transient_jdk-linux-x64_${{ needs.prerequisites.outputs.bundle_id }}
+          name: jdk-linux-x64_${{ needs.prerequisites.outputs.bundle_id }}
           path: ~/jdk-linux-x64
         if: steps.build_restore.outcome == 'failure'
 
@@ -783,7 +783,7 @@ jobs:
       - name: Persist test bundles
         uses: actions/upload-artifact@v3
         with:
-          name: transient_jdk-linux-x86${{ matrix.artifact }}_${{ needs.prerequisites.outputs.bundle_id }}
+          name: jdk-linux-x86${{ matrix.artifact }}_${{ needs.prerequisites.outputs.bundle_id }}
           path: |
             jdk/build/linux-x86/bundles/jdk-${{ env.JDK_VERSION }}-internal+0_linux-x86_bin${{ matrix.artifact }}.tar.gz
             jdk/build/linux-x86/bundles/jdk-${{ env.JDK_VERSION }}-internal+0_linux-x86_bin-tests${{ matrix.artifact }}.tar.gz
@@ -880,14 +880,14 @@ jobs:
         id: build_restore
         uses: actions/download-artifact@v3
         with:
-          name: transient_jdk-linux-x86${{ matrix.artifact }}_${{ needs.prerequisites.outputs.bundle_id }}
+          name: jdk-linux-x86${{ matrix.artifact }}_${{ needs.prerequisites.outputs.bundle_id }}
           path: ~/jdk-linux-x86${{ matrix.artifact }}
         continue-on-error: true
 
       - name: Restore build artifacts (retry)
         uses: actions/download-artifact@v3
         with:
-          name: transient_jdk-linux-x86${{ matrix.artifact }}_${{ needs.prerequisites.outputs.bundle_id }}
+          name: jdk-linux-x86${{ matrix.artifact }}_${{ needs.prerequisites.outputs.bundle_id }}
           path: ~/jdk-linux-x86${{ matrix.artifact }}
         if: steps.build_restore.outcome == 'failure'
 
@@ -1179,7 +1179,7 @@ jobs:
       - name: Persist test bundles
         uses: actions/upload-artifact@v3
         with:
-          name: transient_jdk-windows-x64${{ matrix.artifact }}_${{ needs.prerequisites.outputs.bundle_id }}
+          name: jdk-windows-x64${{ matrix.artifact }}_${{ needs.prerequisites.outputs.bundle_id }}
           path: |
             jdk/build/windows-x64/bundles/jdk-${{ env.JDK_VERSION }}-internal+0_windows-x64_bin${{ matrix.artifact }}.zip
             jdk/build/windows-x64/bundles/jdk-${{ env.JDK_VERSION }}-internal+0_windows-x64_bin-tests${{ matrix.artifact }}.tar.gz
@@ -1301,14 +1301,14 @@ jobs:
         id: build_restore
         uses: actions/download-artifact@v3
         with:
-          name: transient_jdk-windows-x64${{ matrix.artifact }}_${{ needs.prerequisites.outputs.bundle_id }}
+          name: jdk-windows-x64${{ matrix.artifact }}_${{ needs.prerequisites.outputs.bundle_id }}
           path: ~/jdk-windows-x64${{ matrix.artifact }}
         continue-on-error: true
 
       - name: Restore build artifacts (retry)
         uses: actions/download-artifact@v3
         with:
-          name: transient_jdk-windows-x64${{ matrix.artifact }}_${{ needs.prerequisites.outputs.bundle_id }}
+          name: jdk-windows-x64${{ matrix.artifact }}_${{ needs.prerequisites.outputs.bundle_id }}
           path: ~/jdk-windows-x64${{ matrix.artifact }}
         if: steps.build_restore.outcome == 'failure'
 
@@ -1492,7 +1492,7 @@ jobs:
       - name: Persist test bundles
         uses: actions/upload-artifact@v3
         with:
-          name: transient_jdk-macos-x64${{ matrix.artifact }}_${{ needs.prerequisites.outputs.bundle_id }}
+          name: jdk-macos-x64${{ matrix.artifact }}_${{ needs.prerequisites.outputs.bundle_id }}
           path: |
             jdk/build/macos-x64/bundles/jdk-${{ env.JDK_VERSION }}-internal+0_macos-x64_bin${{ matrix.artifact }}.tar.gz
             jdk/build/macos-x64/bundles/jdk-${{ env.JDK_VERSION }}-internal+0_macos-x64_bin-tests${{ matrix.artifact }}.tar.gz
@@ -1591,7 +1591,7 @@ jobs:
       - name: Persist test bundles
         uses: actions/upload-artifact@v3
         with:
-          name: transient_jdk-macos-aarch64${{ matrix.artifact }}_${{ needs.prerequisites.outputs.bundle_id }}
+          name: jdk-macos-aarch64${{ matrix.artifact }}_${{ needs.prerequisites.outputs.bundle_id }}
           path: |
             jdk/build/macos-aarch64/bundles/jdk-${{ env.JDK_VERSION }}-internal+0_macos-aarch64_bin${{ matrix.artifact }}.tar.gz
             jdk/build/macos-aarch64/bundles/jdk-${{ env.JDK_VERSION }}-internal+0_macos-aarch64_bin-tests${{ matrix.artifact }}.tar.gz
@@ -1688,14 +1688,14 @@ jobs:
         id: build_restore
         uses: actions/download-artifact@v3
         with:
-          name: transient_jdk-macos-x64${{ matrix.artifact }}_${{ needs.prerequisites.outputs.bundle_id }}
+          name: jdk-macos-x64${{ matrix.artifact }}_${{ needs.prerequisites.outputs.bundle_id }}
           path: ~/jdk-macos-x64${{ matrix.artifact }}
         continue-on-error: true
 
       - name: Restore build artifacts (retry)
         uses: actions/download-artifact@v3
         with:
-          name: transient_jdk-macos-x64${{ matrix.artifact }}_${{ needs.prerequisites.outputs.bundle_id }}
+          name: jdk-macos-x64${{ matrix.artifact }}_${{ needs.prerequisites.outputs.bundle_id }}
           path: ~/jdk-macos-x64${{ matrix.artifact }}
         if: steps.build_restore.outcome == 'failure'
 
